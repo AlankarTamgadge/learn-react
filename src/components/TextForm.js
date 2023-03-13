@@ -23,36 +23,44 @@ export default function TextForm(props) {
     setText("");
   };
 
-  const handleOnChange = (event) => {
+  const handleOnChange = (event, props) => {
     setText(event.target.value);
   };
 
   return (
     <>
       <div>
-        <h1>{props.heading}</h1>
+        <h1 style={{ color: props.mode === "dark" ? "#f8f9fa" : "#343a40" }}>
+          {props.heading}
+        </h1>
         <div className="mb-3">
           <textarea
             className="form-control"
             value={text}
             onChange={handleOnChange}
+            style={{
+              backgroundColor: props.mode === "dark" ? "#343a40" : "white",
+              color: props.mode === "light" ? "grey" : "white",
+            }}
             id="myBox"
-            rows="20"
+            rows="8"
           ></textarea>
         </div>
         <button className="btn btn-primary mx-3" onClick={handleUpClick}>
           Convert To UPPERCASE
         </button>
-        <button className="btn btn-success mx-3" onClick={handleLowClick}>
+        <button className="btn btn-primary mx-3" onClick={handleLowClick}>
           Convert To lowercase
         </button>
         <button className="btn btn-danger mx-3" onClick={clearText}>
-          Clear Text{" "}
+          Clear Text
         </button>
       </div>
-      <div className="container">
-        <h1>Your Text Summary</h1>
-        <p>
+      <div className="container m-3">
+        <h1 style={{ color: props.mode === "dark" ? "#f8f9fa" : "#343a40" }}>
+          Your Text Summary
+        </h1>
+        <p style={{ color: props.mode === "dark" ? "#f8f9fa" : "#343a40" }}>
           Text has {text.split(" ").length} words and has {text.length}{" "}
           alphabets and it takes {0.008 * text.split(" ").length} minutes to
           read it.

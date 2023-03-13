@@ -3,8 +3,16 @@ import PropTypes from "prop-types";
 
 export default function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-dark">
-      <a className="navbar-brand  text-light" href="/">
+    <nav
+      className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} 
+      `}
+    >
+      <a
+        className={`navbar-brand text-${
+          props.mode === "light" ? "dark" : "light"
+        }`}
+        href="/"
+      >
         {props.title}
       </a>
       <button
@@ -22,30 +30,42 @@ export default function Navbar(props) {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <a className="nav-link text-light" href="/">
+            <a
+              className={`nav-link text-${
+                props.mode === "light" ? "dark" : "light"
+              }`}
+              href="/"
+            >
               Home <span className="sr-only">(current)</span>
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-light" href="/">
+            <a
+              className={`nav-link text-${
+                props.mode === "light" ? "dark" : "light"
+              }`}
+              href="/"
+            >
               {props.about}
             </a>
           </li>
         </ul>
-        <form className="form-inline my-2 my-lg-0">
+        <div className="custom-control custom-switch">
           <input
-            className="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
+            type="checkbox"
+            className="custom-control-input"
+            id="customSwitch1"
+            onClick={props.toggleMode}
           />
-          <button
-            className="btn btn-outline-success my-2 my-sm-0"
-            type="submit"
+          <label
+            className={`custom-control-label mx-3 text-${
+              props.mode === "light" ? "dark" : "light"
+            }`}
+            htmlFor="customSwitch1"
           >
-            Search
-          </button>
-        </form>
+            Knight Mode
+          </label>
+        </div>
       </div>
     </nav>
   );
