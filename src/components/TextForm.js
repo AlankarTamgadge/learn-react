@@ -10,6 +10,7 @@ export default function TextForm(props) {
     newText = newText.join(" ");
     newText = newText.toUpperCase();
     setText(newText);
+    props.showAlert("Converted To UPPERCASE!","info")
   };
 
   const handleLowClick = () => {
@@ -17,10 +18,12 @@ export default function TextForm(props) {
     newText = newText.join(" ");
     newText = newText.toLowerCase();
     setText(newText);
+    props.showAlert("Converted To lowercase!","info")
   };
 
   const clearText = () => {
     setText("");
+    props.showAlert("Text Cleared!","warning")
   };
 
   const handleOnChange = (event, props) => {
@@ -49,7 +52,9 @@ export default function TextForm(props) {
         <button className="btn btn-primary mx-3" onClick={handleUpClick}>
           Convert To UPPERCASE
         </button>
-        <button className="btn btn-primary mx-3" onClick={handleLowClick}>
+        <button className="btn btn-primary mx-3" onClick={handleLowClick}
+        
+        >
           Convert To lowercase
         </button>
         <button className="btn btn-danger mx-3" onClick={clearText}>
