@@ -8,9 +8,8 @@ export default function Navbar(props) {
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <Link
-        className={`navbar-brand text-${
-          props.mode === "light" ? "dark" : "light"
-        }`}
+        className={`navbar-brand text-${props.mode === "light" ? "dark" : "light"
+          }`}
         to="/"
       >
         {props.title}
@@ -31,9 +30,8 @@ export default function Navbar(props) {
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
             <Link
-              className={`nav-link text-${
-                props.mode === "light" ? "dark" : "light"
-              }  m-2 p-2`}
+              className={`nav-link text-${props.mode === "light" ? "dark" : "light"
+                }`}
               to="/"
             >
               Home <span className="sr-only">(current)</span>
@@ -41,15 +39,13 @@ export default function Navbar(props) {
           </li>
           <li className="nav-item">
             <Link
-              className={`nav-link text-${
-                props.mode === "light" ? "dark" : "light"
-              }`}
+              className={`nav-link text-${props.mode === "light" ? "dark" : "light"
+                }`}
               to="/about"
             >
               {props.about}
-            </Link> 
+            </Link>
           </li>
-           
         </ul>
         <div className="custom-control custom-switch">
           <input
@@ -59,9 +55,8 @@ export default function Navbar(props) {
             onClick={props.toggleMode}
           />
           <label
-            className={`custom-control-label mx-3 text-${
-              props.mode === "light" ? "dark" : "light"
-            }`}
+            className={`custom-control-label mx-3 text-${props.mode === "light" ? "dark" : "light"
+              }`}
             htmlFor="customSwitch1"
           >
             Knight Mode

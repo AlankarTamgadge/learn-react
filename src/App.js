@@ -4,7 +4,7 @@ import "./App.css";
 import About from "./components/About";
 import Alert from "./components/Alert";
 import Navbar from "./components/Navbar";
-import TextForm from "./components/TextForm"; 
+import TextForm from "./components/TextForm";  
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -56,7 +56,7 @@ function App() {
                 />
               }
             />
-            <Route exact path="/about" element={<About />} />
+            <Route exact path="/about" element={<About mode={mode}/>} />
           </Routes>
         </div>
       </Router>
