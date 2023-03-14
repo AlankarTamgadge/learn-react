@@ -10,7 +10,7 @@ export default function TextForm(props) {
     newText = newText.join(" ");
     newText = newText.toUpperCase();
     setText(newText);
-    props.showAlert("Converted To UPPERCASE!","info")
+    props.showAlert("Converted To UPPERCASE!", "info")
   };
 
   const handleLowClick = () => {
@@ -18,17 +18,27 @@ export default function TextForm(props) {
     newText = newText.join(" ");
     newText = newText.toLowerCase();
     setText(newText);
-    props.showAlert("Converted To lowercase!","info")
+    props.showAlert("Converted To lowercase!", "info")
   };
 
   const clearText = () => {
     setText("");
-    props.showAlert("Text Cleared!","warning")
+    props.showAlert("Text Cleared!", "warning")
   };
 
   const handleOnChange = (event, props) => {
     setText(event.target.value);
   };
+
+  const countWords = (str) => {
+    str = str.trim();
+    if (str.length === 0) {
+      return 0;
+    }
+    else {
+      return text.trim().split(" ").length;
+    }
+  }
 
   return (
     <>
@@ -49,15 +59,14 @@ export default function TextForm(props) {
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-3" onClick={handleUpClick}>
-          Convert To UPPERCASE
+        <button className="btn btn-primary  m-2 p-2" onClick={handleUpClick}>
+          UPPERCASE
         </button>
-        <button className="btn btn-primary mx-3" onClick={handleLowClick}
-        
+        <button className="btn btn-primary  m-2 p-2" onClick={handleLowClick}
         >
-          Convert To lowercase
+          lowercase
         </button>
-        <button className="btn btn-danger mx-3" onClick={clearText}>
+        <button className="btn btn-danger  m-2 p-2" onClick={clearText}>
           Clear Text
         </button>
       </div>
@@ -66,8 +75,8 @@ export default function TextForm(props) {
           Your Text Summary
         </h1>
         <p style={{ color: props.mode === "dark" ? "#f8f9fa" : "#343a40" }}>
-          Text has {text.split(" ").length} words and has {text.length}{" "}
-          alphabets and it takes {0.008 * text.split(" ").length} minutes to
+          Text has {countWords(text)} words and has {text.length}{" "}
+          characters and it takes {0.008 * text.split(" ").length} minutes to
           read it.
         </p>
       </div>
